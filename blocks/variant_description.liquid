@@ -1,0 +1,79 @@
+
+  <div class="product__description variant__description rte quick-add-hidden" {{ block.shopify_attributes }}>
+    {% assign namespace = 'custom' %}
+    {% assign key = 'variant_description' %}  <!-- Hardcoded value here -->
+    {% if namespace != blank and key != blank %}
+      {% assign variant_description_metafield = product.selected_or_first_available_variant.metafields[namespace][key] %}
+      {% if variant_description_metafield.type == 'rich_text_field' %}
+        {% assign variant_description_text = variant_description_metafield | metafield_tag %}
+      {% endif %}
+    {% endif %}
+    <div class="variant-description__content">
+      <h4>Variant Wise Description</h4>
+      {%- if variant_description_text != blank -%}
+        {{ variant_description_text }}
+      {% else %}
+        {% case block.settings.default_description_type %}
+          {% when 'product_description' %}
+            {%- if product.description != blank -%}
+              {{ product.description }}
+            {%- endif -%}
+          {% when 'richtext_description' %}
+            {%- if block.settings.richtext_description != blank -%}
+              {{ block.settings.richtext_description }}
+            {%- endif -%}
+          {% when 'none' %}
+            <!-- Intentionally left empty -->
+        {% endcase %}
+      {% endif %}
+    </div>
+  </div>
+  
+{% schema %}
+  {
+    "name": "Variant Description",
+    "settings": [
+        {
+      "type": "select",
+      "id": "default_description_type",
+      "options": [
+        {
+          "value": "product_description",
+          "label": "Product Description"
+        },
+        {
+          "value": "richtext_description",
+          "label": "Rich Text"
+        },
+        {
+          "value": "none",
+          "label": "None"
+        }
+      ],
+      "default": "product_description",
+      "label": "Alternative Variant Description",
+      "info": "Alternative source if variant description is empty"
+    },
+    {
+      "type": "richtext",
+      "id": "richtext_description",
+      "label": "Alternative Rich Text Variant Description"
+    }
+    ],
+    "presets": [
+    {
+      "name": "Variant Description",
+      "category": "t:categories.product",
+      "settings": {
+        
+      }
+    }
+  ]
+  }
+{% endschema %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+    
+    //updateDescription('/products/mix-it-up-ring-coral')
+</script>
