@@ -117,7 +117,7 @@
         {% assign product = null %}
       {% endif %}
       <div
-        class="resource-list__item"
+        class="resource-list__item disha-{{ forloop.index }}"
       >
         {% content_for 'block', type: 'product-card', id: 'static-product-card', closest.product: product %}
       </div>
