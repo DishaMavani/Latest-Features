@@ -15,7 +15,7 @@
         "text_U9gCeP": {
           "type": "text",
           "settings": {
-            "text": "<h1>Disha Mavani</h1>",
+            "text": "<h6><em>Disha Mavani Testing on GitHub</em></h6>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
