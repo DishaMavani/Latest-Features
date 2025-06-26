@@ -120,7 +120,7 @@
           "name": "t:names.logo",
           "settings": {
             "inverse": false,
-            "font": "accent",
+            "font": "body",
             "unit": "percent",
             "percent_width": 50,
             "pixel_height": 96,
