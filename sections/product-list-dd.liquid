@@ -1,111 +1,18 @@
-
-{% stylesheet %}
-  .section-resource-list {
-    row-gap: var(--gap);
-  }
-
-  .resource-list--carousel-mobile {
-    display: block;
-
-    @media screen and (width >= 750px) {
-      display: none;
-    }
-  }
-
-  .resource-list {
-    --resource-list-mobile-gap-max: 12px;
-    --resource-list-column-gap: min(var(--resource-list-column-gap-desktop), var(--resource-list-mobile-gap-max));
-    --resource-list-row-gap: min(var(--resource-list-row-gap-desktop), var(--resource-list-mobile-gap-max));
-
-    width: 100%;
-
-    @media screen and (width >= 750px) {
-      --resource-list-column-gap: var(--resource-list-column-gap-desktop);
-      --resource-list-row-gap: var(--resource-list-row-gap-desktop);
-    }
-  }
-
-  .resource-list--grid {
-    display: grid;
-    column-gap: var(--resource-list-column-gap);
-    row-gap: var(--resource-list-row-gap);
-    grid-template-columns: var(--resource-list-columns-mobile);
-
-    @media screen and (width >= 750px) {
-      grid-template-columns: var(--resource-list-columns);
-    }
-  }
-
-  .resource-list__item {
-    height: 100%;
-    color: var(--color-foreground);
-    text-decoration: none;
-  }
-
-  .section-resource-list__content {
-    display: flex;
-    flex-direction: column;
-    align-items: var(--horizontal-alignment);
-    gap: var(--gap);
-    width: 100%;
-  }
-
-  .section-resource-list__header:empty,
-  .section-resource-list__header:has(.group-block-content:empty),
-  .section-resource-list__content:empty {
-    display: none;
-  }
-{% endstylesheet %}
-
-{% liquid
-  assign max_items = section.settings.max_products
-
-  if section.settings.collection != blank and shop.products_count != 0
-    assign section_products = section.settings.collection.products
-    assign max_items = section_products.size | at_most: section.settings.max_products
-  endif
-
-  case section.settings.layout_type
-    when 'grid'
-      assign classes = 'resource-list--grid'
-      capture styles
-        echo '--resource-list-column-gap-desktop: ' | append: section.settings.columns_gap | append: 'px;'
-        echo '--resource-list-row-gap-desktop: ' | append: section.settings.rows_gap | append: 'px;'
-        echo '--resource-list-columns: repeat(' | append: section.settings.columns | append: ', 1fr);'
-        echo '--resource-list-columns-mobile: repeat(' | append: section.settings.mobile_columns | append: ', 1fr);'
-      endcapture
-    when 'carousel'
-      assign classes = 'resource-list__carousel'
-      capture styles
-        echo '--resource-list-column-gap-desktop: ' | append: section.settings.columns_gap | append: 'px;'
-        echo '--column-count: ' | append: section.settings.columns | append: ';'
-        echo '--column-count-mobile: ' | append: section.settings.mobile_columns | append: ';'
-      endcapture
-  endcase
-%}
-
 <div data-name="product-list-dd" class="section-background color-{{ section.settings.color_scheme }}"></div>
 <div
   class="
     section
-    section--{{ section.settings.section_width }}
-    color-{{ section.settings.color_scheme }}
     section-resource-list
     spacing-style
     gap-style
-    {% if request.design_mode == false and section.settings.collection == blank %}
-      in-onboarding-state
-    {% endif %}
-  "
-  style="
-    --column-count-mobile: {{ section.settings.mobile_columns }};
-    {% render 'spacing-style', settings: section.settings %}
-    {% render 'gap-style', value: section.settings.gap %}
-    {{ styles }}
+    
   "
 >
-<h1>{{ section.settings.collection.title }}</h1>
+  <div class="section-resource-list__header">
+    {%- content_for 'block', type: '_product-list-content', id: 'static-header' -%}
+  </div>
 
+  <h1>{{ section.settings.collection.title }}</h1>
 </div>
 
 {% schema %}
