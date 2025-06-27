@@ -1,7 +1,7 @@
 article === {{ article.title }}<br>
 tags =={{ article.tags }}<br>
 {% for tag in article.tags %}
-  {{ tag }}
+  <p><a href="{{ article.url }}/tags/{{ tag | handleize }}">{{ tag }}</a></p>
 {% endfor %}
 {% assign alignment = alignment | default: block.settings.alignment %}
 
