@@ -296,8 +296,6 @@
   }
 {% endstylesheet %}
 
-product_resource -- {{ product_resource }}<br>
-variant-main-picker ----- {{ product_resource.has_only_default_variant }}
 {% unless product_resource.has_only_default_variant %}
   {% liquid
     assign button_background_brightness = section.settings.color_scheme.settings.foreground | color_brightness
