@@ -648,9 +648,21 @@
           "type": "_product-list-content-dd",
           "static": true,
           "settings": {
-            "text": ""
+            "text": "First Block"
           },
-          "blocks": {}
+          "blocks": {
+            "dd_bwK9B7": {
+              "type": "dd",
+              "name": "Custom block made by me",
+              "settings": {
+                "text": "Custom block made by me"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "dd_bwK9B7"
+          ]
         }
       },
       "block_order": [
