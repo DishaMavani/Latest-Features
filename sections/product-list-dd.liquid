@@ -5,6 +5,12 @@
   </div>
 
   <h1>{{ section.settings.collection.title }}</h1>
+   <div
+    class="section-resource-list__content"
+    style="--horizontal-alignment: {{ section.settings.horizontal_alignment }};"
+  >
+    {%- content_for 'blocks' -%}
+  </div>
 </div>
 
 {% schema %}
