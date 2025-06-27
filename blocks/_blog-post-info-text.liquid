@@ -3,6 +3,18 @@ tags =={{ article.tags }}<br>
 {% for tag in article.tags %}
   <p><a href="{{ blog.url }}/tagged/{{ tag | handleize }}">{{ tag }}</a></p>
 {% endfor %}
+
+{%- assign tag_title = request.path | split: '/tagged/' | last | replace: '-', ' ' | capitalize -%}
+
+<h1>
+  {%- if request.path contains '/tagged/' -%}
+    {{ tag_title }}
+  {%- else -%}
+    {{ blog.title | escape }}
+  {%- endif -%}
+</h1>
+
+
 {% assign alignment = alignment | default: block.settings.alignment %}
 
 {% stylesheet %}
