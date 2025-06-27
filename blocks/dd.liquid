@@ -1,6 +1,19 @@
+<h1>{{ section.settings.text }}</h1>
+<h2>{{ section.settings.text }}</h2>
+<h3>{{ section.settings.text }}</h3>
+<h4>{{ section.settings.text }}</h4>
+<h5>{{ section.settings.text }}</h5>
+<h6>{{ section.settings.text }}</h6>
+
 {% schema %}
   {
-    "name": "Block name",
-    "settings": []
+    "name": "Custom block made by me",
+    "settings": [
+      {
+        "type": "text",
+        "id": "text",
+        "label": "Add Text"
+      }
+    ]
   }
 {% endschema %}
