@@ -1,6 +1,8 @@
 article === {{ article.title }}<br>
-tags =={{ article.tags }}
-
+tags =={{ article.tags }}<br>
+{% for tag in article.tags %}
+  {{ tag }}
+{% endfor %}
 {% assign alignment = alignment | default: block.settings.alignment %}
 
 {% stylesheet %}
