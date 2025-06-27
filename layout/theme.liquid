@@ -5,7 +5,9 @@
 >
   <head>
     {{ 'base.css' | asset_url | stylesheet_tag }}
-      request.path === {{ request.path }}<br>
+     {% comment %}
+        request.path === {{ request.path }}
+     {% endcomment %}
     {%- if settings.favicon != blank -%}
       <link
         rel="icon"
