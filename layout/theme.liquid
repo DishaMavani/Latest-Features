@@ -69,5 +69,26 @@
     ========================================================================<br>
     🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿🌿<br>
     ======================================================================== <br>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{ 'add_note_cart.js' | asset_url }}" type="module"></script>
+    <script defer src="{{ 'add_note_cart.js' | asset_url }}" type="module"></script>
+
+    <style>
+    .mini-cart__action summary > span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: 1rem;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: .3rem;
+    } 
+
+    .mini-cart__action summary .icon {
+      height: 1.4rem;
+      position: relative;
+      top: -.2rem;
+    }
+    </style>
   </body>
 </html>

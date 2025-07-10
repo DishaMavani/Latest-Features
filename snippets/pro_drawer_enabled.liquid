@@ -1,0 +1,29 @@
+{%- if settings.pro_drawer_enabled -%}
+  <!-- //disclosure-has-popup -->
+  <details class="mini-cart__action disclosure-has-popup show_line_cart_note">
+    <summary>
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" class="icon icon-pen" fill="none" viewBox="0 0 512 512">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M493.25 56.26l-37.51-37.51C443.25 6.25 426.87 0 410.49 0s-32.76 6.25-45.26 18.74L12.85 371.12.15 485.34C-1.45 499.72 9.88 512 23.95 512c.89 0 1.78-.05 2.69-.15l114.14-12.61 352.48-352.48c24.99-24.99 24.99-65.51-.01-90.5zM126.09 468.68l-93.03 10.31 10.36-93.17 263.89-263.89 82.77 82.77-263.99 263.98zm344.54-344.54l-57.93 57.93-82.77-82.77 57.93-57.93c6.04-6.04 14.08-9.37 22.63-9.37 8.55 0 16.58 3.33 22.63 9.37l37.51 37.51c12.47 12.48 12.47 32.78 0 45.26z" fill="currentColor"></path>
+        </svg>
+        Note
+      </span>
+    </summary>
+    <div>
+      <button type="button" class="close" onclick="this.closest('details').querySelector('summary').click()">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" fill="none" viewBox="0 0 18 17">
+            <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor"></path>
+        </svg>
+      </button>
+      <label for="Cart-note">Product special instructions</label>
+      <div class="">
+        <div class="field">
+          <textarea class="text-area text-area--resize-vertical field__input" id="Cart-line-note"></textarea>
+        </div>
+        <div>
+          <button class="button button--full-width show_line_cart_note_btn" type="button">Apply</button>
+        </div>
+      </div>
+    </div>
+  </details>
+{%- endif -%} 

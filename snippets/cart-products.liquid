@@ -645,6 +645,14 @@
                       {% endif %}
                     {% endif %}
                   </div>
+                  {%- if settings.pro_drawer_enabled -%}
+                    {% assign proNote = '' %}
+                    {%- for property in item.properties -%}{%- if property.last == blank or property.first == 'Note' -%}{% assign proNote = property.last %}{%- endif -%}{%- endfor -%}
+                    <dd class="price add_note" data-lineItem="{{ item.key }}" data-lineItem-qty="{{ item.quantity }}" data-property="{{ proNote }}"> 
+                      {%- if proNote != blank -%}Edit Note{%- else -%}Add note{%- endif -%}
+                    </dd>
+                  {% endif %}
+                  
                 </td>
                 <td
                   class="cart-items__quantity"
