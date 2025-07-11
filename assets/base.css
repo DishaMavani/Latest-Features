@@ -3935,3 +3935,19 @@ text-component {
   transform: none;
   box-shadow: none;
 }
+
+.cart-items__variant {
+    display: flex !important;
+    gap: 5px;
+}
+.cart-items__properties {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+details.mini-cart__action.disclosure-has-popup.show_line_cart_note {
+    display: none;
+}
+details.mini-cart__action.disclosure-has-popup.show_line_cart_note[open] {
+    display: block;
+}
