@@ -1726,6 +1726,12 @@
         "default": "page"
       },
       {
+        "type": "checkbox",
+        "id": "pro_drawer_enabled",
+        "default": true,
+        "label": "Notes product level"
+      },
+      {
         "type": "select",
         "id": "product_title_case",
         "label": "t:settings.product_title_case",
